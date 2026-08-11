@@ -50,8 +50,6 @@ public class LabelService {
             throw new IllegalArgumentException ("O arquivo não é valido");
         }
 
-        System.out.println ("Tamanho da lista: " + labelResponses.size ());
-
         labelResponses.forEach (System.out::println);
 
         return labelResponses;
@@ -61,7 +59,6 @@ public class LabelService {
         Matcher matcher = pattern.matcher(text);
 
         if (matcher.find()) {
-            System.out.println("[" + matcher.group() + "]");
             return matcher.group(group);
         }
 
@@ -86,8 +83,6 @@ public class LabelService {
         List<String> elements = new ArrayList<>();
 
         while (matcher.find()) {
-            if (id) System.out.println("[" + matcher.group() + "]");
-
             elements.add (matcher.group(group));
         }
 

@@ -57,21 +57,28 @@ public class PdfService {
         document.add (paragraph);
         document.add (new Paragraph (" "));
 
-        PdfPTable table = new PdfPTable (4);
+        PdfPTable table = new PdfPTable (5);
         table.setWidthPercentage (100);
 
-        table.setWidths (new float[]{25, 15, 45, 15});
+        table.setWidths (new float[]{25, 15, 30, 15, 15});
 
         table.addCell ("ID");
         table.addCell ("Data");
         table.addCell ("Produtos");
         table.addCell ("Fornecedor");
+        table.addCell ("Total");
 
-        for (LabelResponse labelResponse : labelResponses) {
-            table.addCell (labelResponse.id());
-            table.addCell (labelResponse.date());
-            table.addCell (String.join (", ", labelResponse.skusAndQuantities()));
-            table.addCell (String.valueOf(labelResponse.totalSupplierPrice()));
+        for (int i = 0; i < labelResponses.size (); i++) {
+            table.addCell (labelResponses.get(i).id());
+            table.addCell (labelResponses.get (i).date());
+            table.addCell (String.join (", ", labelResponses.get (i).skusAndQuantities()));
+            table.addCell (String.format("R$%.2f", labelResponses.get (i).totalSupplierPrice()));
+
+            if (i == 0) {
+                table.addCell (String.format("R$%.2f", labelResponses.stream().mapToDouble(LabelResponse::totalSupplierPrice).sum()));
+            } else {
+                table.addCell (" ");
+            }
         }
 
         document.add (table);
