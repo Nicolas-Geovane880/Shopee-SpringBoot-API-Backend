@@ -57,6 +57,7 @@ public class SupplierPrices {
             Map.entry("KIT02-05-ACUSTICO", 18.0),
             Map.entry("KIT-20-ACUSTICO", 48.0),
             Map.entry("KIT-40-ACUSTICO", 96.0),
-            Map.entry("KIT-80-ACUSTICO", 192.0)
+            Map.entry("KIT-80-ACUSTICO", 192.0),
+            Map.entry("KIT-100-ACUSTICO", 192.0)
     );
 }
