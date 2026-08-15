@@ -6,13 +6,16 @@ public class SupplierPrices {
 
     private SupplierPrices () {}
 
-    public static final Map<String, Double> supplierPrices = Map.ofEntries(
+    public static final Map<String, Double> supplierPrices = Map.<String, Double>ofEntries(
             Map.entry("CERVICAL", 23.0),
+            Map.entry("CERVICAL 1 UNIDADE", 23.0),
+            Map.entry("CERVICAL 2 UNIDADES", 46.0),
             Map.entry("CERVICAL-TNT", 21.0),
             Map.entry("CERVICAL-ELANCA", 23.0),
             Map.entry("ENCOSTO-ESPUMA", 28.0),
             Map.entry("ENCOSTO", 38.0),
             Map.entry("CAPA ENCOSTO", 14.0),
+            Map.entry("CAPA ENCOSTO 01 UNIDADE + FRONHA", 52.0),
             Map.entry("PROMO", 13.0),
             Map.entry("QUADRADINHO", 20.0),
             Map.entry("FRONHA-TRAV", 8.0),
@@ -31,8 +34,13 @@ public class SupplierPrices {
             Map.entry("BABY-80X60X6", 33.0),
             Map.entry("BABY-90X60X7", 35.0),
             Map.entry("BABY-100X70X5", 38.0),
+            Map.entry("BABY-100-70X5", 38.0),
             Map.entry("COLCHAO-78X12", 135.0),
             Map.entry("COLCHAO-88X12", 150.0),
+            Map.entry("D23-88X12-BRANCO", 160.0),
+            Map.entry("D23-88X12-PRETO", 160.0),
+            Map.entry("D33-88X12-BRANCO", 176.0),
+            Map.entry("D33-88X12-PRETO", 176.0),
             Map.entry("PILLOW-78-4", 24.0),
             Map.entry("PILLOW-88-4", 26.0),
             Map.entry("PILLOW-138-4", 35.0),
@@ -55,8 +63,11 @@ public class SupplierPrices {
             Map.entry("KIT02-12-ACUSTICO", 32.0),
             Map.entry("KIT02-10-ACUSTICO", 28.0),
             Map.entry("KIT02-05-ACUSTICO", 18.0),
+            Map.entry("KIT-05-ACUSTICO", 18.0),
+            Map.entry("KIT-10-ACUSTICO", 28.0),
             Map.entry("KIT-20-ACUSTICO", 48.0),
             Map.entry("KIT-40-ACUSTICO", 96.0),
+            Map.entry("KIT-50-ACUSTICO", 124.0),
             Map.entry("KIT-80-ACUSTICO", 192.0),
             Map.entry("KIT-100-ACUSTICO", 192.0)
     );

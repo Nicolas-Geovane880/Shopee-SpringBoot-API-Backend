@@ -43,6 +43,7 @@ public class OrderDTO {
 
     private void calculateSupplierPrice () {
         this.products.forEach (product -> {
+            System.out.println (product.getSKU());
             this.supplierPrice += SupplierPrices.supplierPrices.get(product.getSKU ().toUpperCase ()) * product.getQuantity ();
         });
     }

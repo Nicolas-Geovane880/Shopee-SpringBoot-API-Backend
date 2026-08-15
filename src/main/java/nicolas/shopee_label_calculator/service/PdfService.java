@@ -172,9 +172,15 @@ public class PdfService {
         for (int i = 1; i <= sheet.getLastRowNum(); i++) {
             Row row = sheet.getRow(i);
 
+            String variation = "";
+
             String id = row.getCell(columns.get("ID do pedido")).getStringCellValue ();
             String productDate = row.getCell(columns.get("Hora do pagamento do pedido")).getStringCellValue();
             String sku = row.getCell(columns.get("Número de referência SKU")).getStringCellValue();
+
+            if (sku.equals("CAPA ENCOSTO") || sku.equals("CERVICAL")) {
+                variation = row.getCell (columns.get ("Nome da variação")).getStringCellValue();
+            }
             double productSubtotal = Double.parseDouble (row.getCell(columns.get ("Subtotal do produto")).getStringCellValue());
             int quantity = Integer.parseInt (row.getCell(columns.get ("Quantidade")).getStringCellValue());
             double liquidComercialTax = Double.parseDouble (row.getCell (columns.get ("Taxa de comissão líquida")).getStringCellValue());
@@ -185,7 +191,7 @@ public class PdfService {
 
             ProductDTO product = ProductDTO.builder()
                     .orderId(id)
-                    .SKU(sku)
+                    .SKU(!variation.isEmpty() ? sku + " " + variation : sku)
                     .productSubtotal(productSubtotal)
                     .date(productDate.equals("-") ? LocalDate.now() : LocalDate.parse(productDate.split(" ")[0]))
                     .quantity(quantity)
