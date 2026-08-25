@@ -53,10 +53,8 @@ public class OrderService {
                 .collect(Collectors.toSet());
     }
 
-    public List<OrderDTO> filterOrders (List<OrderDTO> orderDTOS) {
+    public List<OrderDTO> filterOrders (List<OrderDTO> orderDTOS, List<OrderStatus> status) {
         return orderDTOS.stream()
-                .filter(o -> o.getStatus() != OrderStatus.CANCELLED &&
-                                       o.getStatus() != OrderStatus.NOT_PAID &&
-                                        o.getStatus() != OrderStatus.ACCEPTED_REFUND).toList();
+                .filter (o -> status.stream().anyMatch (s -> o.getStatus() == s)).toList();
     }
 }

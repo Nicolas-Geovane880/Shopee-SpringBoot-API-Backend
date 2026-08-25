@@ -6,6 +6,7 @@ import nicolas.shopee_label_calculator.dto.ProductDTO;
 import nicolas.shopee_label_calculator.dto.TaxRate;
 import nicolas.shopee_label_calculator.service.OrderService;
 import nicolas.shopee_label_calculator.service.PdfService;
+import nicolas.shopee_label_calculator.utils.OrderStatus;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -36,13 +38,19 @@ public class OrderController {
 //    }
 
     @PostMapping(value = "/")
-    public ResponseEntity<byte[]> getOrders (@RequestParam ("file") MultipartFile file) throws IOException {
+    public ResponseEntity<byte[]> getOrders (@RequestParam ("file") MultipartFile file,
+                                             @RequestParam (required = false) List<OrderStatus> status) throws IOException {
+
         Map<ProductDTO, TaxRate> productsAndTaxes = pdfService.getProductsAndTaxes(file);
-        List<OrderDTO> orders = service.createOrders(productsAndTaxes);
+
+        List<OrderDTO> orders = service.createOrders(productsAndTaxes).stream()
+                .sorted(Comparator.comparing(OrderDTO::getDate))
+                .toList();
+
         return ResponseEntity.ok()
                 .header (HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=pedidos.pdf")
                 .contentType (MediaType.APPLICATION_PDF)
-                .body (pdfService.generateMetricsTable(service.filterOrders(orders)));
+                .body (pdfService.generateMetricsTable(status == null ? orders: service.filterOrders(orders, status)));
     }
 }
 

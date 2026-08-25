@@ -50,8 +50,6 @@ public class LabelService {
             throw new IllegalArgumentException ("O arquivo não é valido");
         }
 
-        labelResponses.forEach (System.out::println);
-
         return labelResponses;
     }
 
