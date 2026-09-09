@@ -5,7 +5,6 @@ import nicolas.shopee_label_calculator.dto.ProductDTO;
 import nicolas.shopee_label_calculator.dto.TaxRate;
 import nicolas.shopee_label_calculator.utils.OrderStatus;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

@@ -290,6 +290,8 @@ public class PdfService {
                             refund.equals ("Devolução em Andamento") ? OrderStatus.REFUND_IN_PROGRESS : OrderStatus.UNACCEPTED_REFUND)
                     .build();
 
+            System.out.println(product.getOrderId() + " -> " + product.getStatus());
+
             TaxRate tax = TaxRate.builder()
                     .orderId(id)
                     .liquidServiceTax(liquidServiceTax)

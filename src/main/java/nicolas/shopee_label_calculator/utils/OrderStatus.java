@@ -5,7 +5,7 @@ public enum OrderStatus {
     CANCELLED, DELIVERED, SENT, TO_SEND, CONCLUDED, NOT_PAID, NOT_LISTED, REQUEST_RETURN, ACCEPTED_REFUND, UNACCEPTED_REFUND, REFUND_IN_PROGRESS;
 
     public static OrderStatus getOrderStatus (String orderStatusStr) {
-        if (orderStatusStr.contains ("O comprador pode pedir uma devolução até")) return DELIVERED;
+        if (orderStatusStr.contains ("O comprador pode pedir uma devolução até")) return CONCLUDED;
 
         switch (orderStatusStr.toLowerCase ()) {
             case "cancelado" -> {return  CANCELLED;}
