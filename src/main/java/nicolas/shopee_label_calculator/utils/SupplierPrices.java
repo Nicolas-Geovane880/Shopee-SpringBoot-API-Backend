@@ -46,6 +46,8 @@ public class SupplierPrices {
             Map.entry("D33-88X12-PRETO", 207.0),
             Map.entry("D33-138X12-PRETO", 338.0),
             Map.entry("D33-138X12-BRANCO", 338.0),
+            Map.entry("D33-138X17-BRANCO", 434.0),
+            Map.entry("D33-138X17-PRETO", 434.0),
             Map.entry("BONE-22-PRETO", 30.0),
             Map.entry("BONE-22-AMARELO", 30.0),
             Map.entry("BONE-22-VERDE", 30.0),
