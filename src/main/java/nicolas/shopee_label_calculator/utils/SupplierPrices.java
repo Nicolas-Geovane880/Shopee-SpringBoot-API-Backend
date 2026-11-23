@@ -20,6 +20,8 @@ public class SupplierPrices {
             Map.entry("ENCOSTO-COMPLETO+CAPA-ENCOSTO", 52.0),
             Map.entry("ENCOSTO-COMPLETO+FRONHA", 52.0),
             Map.entry("PROMO", 13.0),
+            Map.entry("KIT-2-PROMO", 26.0),
+            Map.entry("KIT-02-PROMO", 26.0),
             Map.entry("QUADRADINHO", 20.0),
             Map.entry("FRONHA-TRAV", 8.0),
             Map.entry("XUXAO-MAG", 33.0),
